@@ -1,0 +1,21 @@
+
+plugins {
+   id 'application'
+   id 'java'
+   id 'org.openjfx.javafxplugin' version '0.1.0'  //<- this JavaFX plugin will make it easier to declare our GUI dependencies
+
+}
+
+
+sourceSets.main.java.srcDir("src")
+sourceSets.main.resources.srcDir("resources")
+
+
+
+repositories.mavenCentral()
+javafx.version = "20"
+javafx.modules = ['javafx.controls', 'javafx.fxml'] //<- this one line will automatically write our dependencies lines for us with the right version
+
+tasks.named("compileJava").configure { dependsOn("processResources") }
+
+application.mainClass = "main.HelloGUI"

@@ -1,0 +1,36 @@
+
+plugins {
+    id 'java'
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'net.sourceforge.tess4j:tess4j:5.7.0'
+}
+
+tasks.named("compileJava") {
+    dependsOn(tasks.named("processResources"))
+}
+
+application {
+    mainClassName = 'Main'
+}
+
+run {
+    standardInput = System.in
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['.']
+        }
+        resources {
+            srcDirs = ['resources']
+        }
+    }
+}

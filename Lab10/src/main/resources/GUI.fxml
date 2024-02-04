@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="800.0" maxWidth="1120.0" minHeight="800.0" minWidth="1120.0" prefHeight="800.0" prefWidth="1120.0" xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller">
+   <children>
+      <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="menu_load_file" mnemonicParsing="false" onAction="#loadInputFile" text="Load File" />
+                  <MenuItem fx:id="menu_close" mnemonicParsing="false" onAction="#stopApplication" text="Close" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TabPane layoutX="-16.0" layoutY="26.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="28.0">
+         <tabs>
+            <Tab fx:id="searchByPositionTab" text="Search By Position">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="position_search_button" layoutX="196.0" layoutY="22.0" mnemonicParsing="false" onAction="#positionSearch" text="Search" />
+                        <TextField fx:id="position_search_box" editable="false" layoutX="30.0" layoutY="22.0" promptText="Enter position..." />
+                        <Label layoutX="30.0" layoutY="68.0" text="Top Earners" />
+                        <TableView fx:id="position_high_table" layoutX="30.0" layoutY="88.0" prefHeight="292.0" prefWidth="1060.0">
+                          <columns>
+                           <TableColumn fx:id="position_high_id_column" prefWidth="90" text="Trans ID" />
+                           <TableColumn fx:id="position_high_last_column" prefWidth="85" text="Last Name" />
+                           <TableColumn fx:id="position_high_first_column" prefWidth="85" text="First Name" />
+                           <TableColumn fx:id="position_high_dept_column" prefWidth="350" text="Department" />
+                           <TableColumn fx:id="position_high_position_column" prefWidth="350" text="Position" />
+                           <TableColumn fx:id="position_high_salary_column" prefWidth="85" text="Salary" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="30.0" layoutY="388.0" text="Bottom Earners" />
+                        <TableView fx:id="position_low_table" layoutX="30.0" layoutY="410.0" prefHeight="293.0" prefWidth="1060.0">
+                           <columns>
+                              <TableColumn fx:id="position_low_id_column" prefWidth="90" text="Trans ID" />
+                              <TableColumn fx:id="position_low_last_column" prefWidth="85" text="Last Name" />
+                              <TableColumn fx:id="position_low_first_column" prefWidth="85" text="First Name" />
+                              <TableColumn fx:id="position_low_dept_column" prefWidth="350" text="Department" />
+                              <TableColumn fx:id="position_low_position_column" prefWidth="350" text="Position" />
+                              <TableColumn fx:id="position_low_salary_column" prefWidth="85" text="Salary" />
+                           </columns>
+                        </TableView>
+                        <TextArea fx:id="position_average_salary_text" editable="false" layoutX="890.0" layoutY="22.0" prefHeight="42.0" prefWidth="200.0" scrollLeft="-1.0" scrollTop="-1.0" text="Mean Salary: $000,000.00&#10;Median Salary: $000,000.00&#10;" wrapText="true" />
+                        <CheckBox fx:id="limit_results_box" layoutX="266.0" layoutY="26.0" mnemonicParsing="false" selected="true" text="Limit results" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="searchByEmployeeTab" text="Search By Employee">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="employee_search_button" layoutX="196.0" layoutY="22.0" mnemonicParsing="false" onAction="#employeeSearch" text="Search" />
+                        <TextField fx:id="employee_search_box" editable="false" layoutX="30.0" layoutY="22.0" promptText="Enter employee..." />
+                        <TableView fx:id="employee_table" layoutX="30.0" layoutY="68.0" prefHeight="635.0" prefWidth="1060.0">
+                           <columns>
+                              <TableColumn fx:id="employee_id_column" prefWidth="90" text="Trans ID" />
+                              <TableColumn fx:id="employee_last_column" prefWidth="85" text="Last Name" />
+                              <TableColumn fx:id="employee_first_column" prefWidth="85" text="First Name" />
+                              <TableColumn fx:id="employee_dept_column" prefWidth="350" text="Department" />
+                              <TableColumn fx:id="employee_position_column" prefWidth="350" text="Position" />
+                              <TableColumn fx:id="employee_salary_column" prefWidth="85" text="Salary" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="searchByDepartmentTab" text="Search By Department">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="department_search_button" layoutX="196.0" layoutY="22.0" mnemonicParsing="false" onAction="#departmentSearch" text="Search" />
+                        <TextField fx:id="department_search_box" editable="false" layoutX="30.0" layoutY="22.0" promptText="Enter department..." />
+                        <TableView fx:id="department_table" layoutX="30.0" layoutY="68.0" prefHeight="635.0" prefWidth="1060.0">
+                           <columns>
+                              <TableColumn fx:id="department_id_column" prefWidth="90" text="Trans ID" />
+                              <TableColumn fx:id="department_last_column" prefWidth="85" text="Last Name" />
+                              <TableColumn fx:id="department_first_column" prefWidth="85" text="First Name" />
+                              <TableColumn fx:id="department_dept_column" prefWidth="350" text="Department" />
+                              <TableColumn fx:id="department_position_column" prefWidth="350" text="Position" />
+                              <TableColumn fx:id="department_salary_column" prefWidth="85" text="Salary" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+      <DialogPane fx:id="opening_dialog" headerText="Open payroll CSV file using 'File -&gt; Load File' to start program." layoutY="28.0" prefHeight="772.0" prefWidth="1120.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="28.0">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets left="400.0" top="325.0" />
+         </padding>
+      </DialogPane>
+   </children>
+</AnchorPane>
